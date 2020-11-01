@@ -1,4 +1,14 @@
-# sapper-template
+# Sapper-Typescript-PostCSS Template
+
+## eslint-plugin-svelte3
+
+KNOWN BUG: ESLint parses the `<script lang="ts>` block with a Javascript parser
+
+========================================================
+
+## Default README Starts Here
+
+========================================================
 
 The default template for setting up a [Sapper](https://github.com/sveltejs/sapper) project. Can use either Rollup or webpack as bundler.
 
