@@ -17,9 +17,10 @@ const legacy = !!process.env.SAPPER_LEGACY_BUILD
 
 const onwarn = (warning, onwarn) =>
   (warning.code === 'MISSING_EXPORT' && /'preload'/.test(warning.message)) ||
-	(warning.code === 'CIRCULAR_DEPENDENCY' && /[/\\]@sapper[/\\]/.test(warning.message)) ||
-	(warning.code === 'THIS_IS_UNDEFINED') ||
-	onwarn(warning)
+  (warning.code === 'CIRCULAR_DEPENDENCY' &&
+    /[/\\]@sapper[/\\]/.test(warning.message)) ||
+  warning.code === 'THIS_IS_UNDEFINED' ||
+  onwarn(warning)
 
 export default {
   client: {
@@ -47,26 +48,34 @@ export default {
       commonjs(),
       typescript({ sourceMap: dev }),
 
-      legacy && babel({
-        extensions: ['.js', '.mjs', '.html', '.svelte'],
-        babelHelpers: 'runtime',
-        exclude: ['node_modules/@babel/**'],
-        presets: [
-          ['@babel/preset-env', {
-            targets: '> 0.25%, not dead'
-          }]
-        ],
-        plugins: [
-          '@babel/plugin-syntax-dynamic-import',
-          ['@babel/plugin-transform-runtime', {
-            useESModules: true
-          }]
-        ]
-      }),
+      legacy &&
+        babel({
+          extensions: ['.js', '.mjs', '.html', '.svelte'],
+          babelHelpers: 'runtime',
+          exclude: ['node_modules/@babel/**'],
+          presets: [
+            [
+              '@babel/preset-env',
+              {
+                targets: '> 0.25%, not dead'
+              }
+            ]
+          ],
+          plugins: [
+            '@babel/plugin-syntax-dynamic-import',
+            [
+              '@babel/plugin-transform-runtime',
+              {
+                useESModules: true
+              }
+            ]
+          ]
+        }),
 
-      !dev && terser({
-        module: true
-      })
+      !dev &&
+        terser({
+          module: true
+        })
     ],
 
     preserveEntrySignatures: false,
@@ -98,7 +107,9 @@ export default {
       commonjs(),
       typescript({ sourceMap: dev })
     ],
-    external: Object.keys(pkg.dependencies).concat(require('module').builtinModules),
+    external: Object.keys(pkg.dependencies).concat(
+      require('module').builtinModules
+    ),
 
     preserveEntrySignatures: 'strict',
     onwarn

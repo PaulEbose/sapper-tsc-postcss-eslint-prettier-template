@@ -1,7 +1,7 @@
 import posts from './_posts.js'
 
 const lookup = new Map()
-posts.forEach(post => {
+posts.forEach((post) => {
   lookup.set(post.slug, JSON.stringify(post))
 })
 
@@ -21,8 +21,10 @@ export function get(req, res, next) {
       'Content-Type': 'application/json'
     })
 
-    res.end(JSON.stringify({
-      message: 'Not found'
-    }))
+    res.end(
+      JSON.stringify({
+        message: 'Not found'
+      })
+    )
   }
 }
