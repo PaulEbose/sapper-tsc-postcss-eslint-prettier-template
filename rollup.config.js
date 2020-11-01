@@ -1,5 +1,6 @@
 import babel from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
+import json from '@rollup/plugin-json'
 import resolve from '@rollup/plugin-node-resolve'
 import replace from '@rollup/plugin-replace'
 import typescript from '@rollup/plugin-typescript'
@@ -51,6 +52,7 @@ export default {
       }),
       commonjs(cjsOptions),
       typescript(tscOptions),
+      json(),
 
       legacy &&
         babel({
@@ -112,7 +114,8 @@ export default {
         dedupe: ['svelte']
       }),
       commonjs(cjsOptions),
-      typescript(tscOptions)
+      typescript(tscOptions),
+      json()
     ],
     external: Object.keys(pkg.dependencies).concat(
       require('module').builtinModules
