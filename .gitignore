@@ -4,6 +4,7 @@
 yarn-error.log
 /__sapper__/
 .eslintcache
+static/global.css
 
 # yarn berry
 .yarn/*
