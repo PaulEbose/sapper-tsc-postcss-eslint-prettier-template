@@ -15,9 +15,8 @@ import pkg from './package.json'
 const mode = process.env.NODE_ENV
 const dev = mode === 'development'
 const legacy = !!process.env.SAPPER_LEGACY_BUILD
-const sourcemap = dev ? 'inline' : false
-const cjsOptions = { sourceMap: !!sourcemap }
-const tscOptions = { noEmitOnError: !dev, sourceMap: !!sourcemap }
+const cjsOptions = { sourceMap: dev }
+const tscOptions = { noEmitOnError: !dev, sourceMap: dev }
 const preprocess = sveltePreprocess({
   sourceMap: dev,
   postcss: true
