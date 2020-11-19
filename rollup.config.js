@@ -9,8 +9,8 @@ import path from 'path'
 import svelte from 'rollup-plugin-svelte'
 import { terser } from 'rollup-plugin-terser'
 import config from 'sapper/config/rollup.js'
+import sveltePreprocess from 'svelte-preprocess'
 import pkg from './package.json'
-const { createPreprocessors } = require('./svelte.config')
 
 const mode = process.env.NODE_ENV
 const dev = mode === 'development'
@@ -18,7 +18,10 @@ const legacy = !!process.env.SAPPER_LEGACY_BUILD
 const sourcemap = dev ? 'inline' : false
 const cjsOptions = { sourceMap: !!sourcemap }
 const tscOptions = { noEmitOnError: !dev, sourceMap: !!sourcemap }
-const preprocess = createPreprocessors({ sourceMap: !!sourcemap })
+const preprocess = sveltePreprocess({
+  sourceMap: dev,
+  postcss: true
+})
 
 const onwarn = (warning, onwarn) =>
   (warning.code === 'MISSING_EXPORT' && /'preload'/.test(warning.message)) ||
