@@ -1,6 +1,3 @@
 node_modules/
 __sapper__/
-yarn*
-.yarn
 package.lock*
-*.min.css
