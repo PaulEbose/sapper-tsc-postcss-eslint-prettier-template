@@ -1,6 +1,6 @@
 {
-  "name": "{{ insert_here }}",
-  "description": "{{ insert_here }}",
+  "name": "project",
+  "description": "project",
   "version": "0.0.1",
   "scripts": {
     "dev": "sapper dev",
