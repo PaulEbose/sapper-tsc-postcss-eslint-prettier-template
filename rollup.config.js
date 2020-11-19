@@ -25,8 +25,7 @@ const preprocess = sveltePreprocess({
 
 const onwarn = (warning, onwarn) =>
   (warning.code === 'MISSING_EXPORT' && /'preload'/.test(warning.message)) ||
-  (warning.code === 'CIRCULAR_DEPENDENCY' &&
-    /[/\\]@sapper[/\\]/.test(warning.message)) ||
+  (warning.code === 'CIRCULAR_DEPENDENCY' && /[/\\]@sapper[/\\]/.test(warning.message)) ||
   warning.code === 'THIS_IS_UNDEFINED' ||
   onwarn(warning)
 
@@ -118,9 +117,7 @@ export default {
       typescript(tscOptions),
       json()
     ],
-    external: Object.keys(pkg.dependencies).concat(
-      require('module').builtinModules
-    ),
+    external: Object.keys(pkg.dependencies).concat(require('module').builtinModules),
 
     preserveEntrySignatures: 'strict',
     onwarn

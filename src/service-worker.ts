@@ -64,10 +64,8 @@ self.addEventListener('fetch', (event: FetchEvent) => {
   const isHttp = url.protocol.startsWith('http')
   const isDevServerRequest =
     url.hostname === self.location.hostname && url.port !== self.location.port
-  const isStaticAsset =
-    url.host === self.location.host && staticAssets.has(url.pathname)
-  const skipBecauseUncached =
-    event.request.cache === 'only-if-cached' && !isStaticAsset
+  const isStaticAsset = url.host === self.location.host && staticAssets.has(url.pathname)
+  const skipBecauseUncached = event.request.cache === 'only-if-cached' && !isStaticAsset
 
   if (isHttp && !isDevServerRequest && !skipBecauseUncached) {
     event.respondWith(
