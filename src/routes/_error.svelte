@@ -1,4 +1,4 @@
-<style>
+<style lang="postcss">
   h1,
   p {
     margin: 0 auto;

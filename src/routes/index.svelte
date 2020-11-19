@@ -1,4 +1,4 @@
-<style>
+<style lang="postcss">
   h1,
   figure,
   p {
@@ -34,7 +34,7 @@
   }
 </style>
 
-<script>
+<script lang="ts">
   import successkid from 'images/successkid.jpg'
 </script>
 

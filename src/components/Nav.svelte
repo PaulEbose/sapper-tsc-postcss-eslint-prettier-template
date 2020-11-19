@@ -1,4 +1,4 @@
-<style>
+<style lang="postcss">
   nav {
     border-bottom: 1px solid rgba(255, 62, 0, 0.1);
     font-weight: 300;
@@ -59,7 +59,8 @@
       <a
         rel="prefetch"
         aria-current="{segment === 'blog' ? 'page' : undefined}"
-        href="blog">blog</a>
+        href="blog"
+      >blog</a>
     </li>
   </ul>
 </nav>

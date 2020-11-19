@@ -1,4 +1,4 @@
-<style>
+<style lang="postcss">
   /*
 		By default, CSS is locally scoped to the component,
 		and any unused styles are dead-code-eliminated.

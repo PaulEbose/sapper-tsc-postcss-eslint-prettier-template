@@ -1,4 +1,4 @@
-<style>
+<style lang="postcss">
   @import '../global.pcss';
   main {
     position: relative;
