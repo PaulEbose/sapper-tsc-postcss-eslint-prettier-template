@@ -1,7 +1,6 @@
-// RENAME THIS FILE FROM `service--worker.ts` to `service-worker.ts` to use
 import { files, shell, timestamp } from '@sapper/service-worker'
 
-declare let self: ServiceWorkerGlobalScope
+declare const self: ServiceWorkerGlobalScope
 
 const ASSETS = `cache${timestamp}`
 
