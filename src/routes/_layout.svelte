@@ -1,4 +1,5 @@
 <style>
+  @import '../global.pcss';
   main {
     position: relative;
     max-width: 56em;
