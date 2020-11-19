@@ -1,23 +1,18 @@
-const purgeCss = require('@fullhuman/postcss-purgecss')
-const autoPrefixer = require('autoprefixer')
-const cssnano = require('cssnano')
-const postcssImport = require('postcss-import')
-
-const mode = process.env.NODE_ENV
-const dev = mode === 'development'
+const production = process.env.NODE_ENV === 'production'
 
 module.exports = {
   plugins: [
-    postcssImport,
-    autoPrefixer,
+    require('autoprefixer'),
+    require('postcss-nested'),
+    require('postcss-import'),
 
-    !dev &&
-      purgeCss({
+    production &&
+      require('@fullhuman/postcss-purgecss')({
         content: ['./src/**/*.svelte', './src/**/*.html'],
         keyframes: true
       }),
-    !dev &&
-      cssnano({
+    production &&
+      require('cssnano')({
         preset: ['default', { discardComments: { removeAll: true } }]
       })
   ].filter(Boolean)
