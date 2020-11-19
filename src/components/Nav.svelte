@@ -59,8 +59,7 @@
       <a
         rel="prefetch"
         aria-current="{segment === 'blog' ? 'page' : undefined}"
-        href="blog"
-      >blog</a>
+        href="blog">blog</a>
     </li>
   </ul>
 </nav>

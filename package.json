@@ -9,7 +9,7 @@
     "start": "node __sapper__/build",
     "validate": "svelte-check --ignore src/node_modules/@sapper",
     "lint": "eslint . --fix \"**/*.{js,svelte,ts}\"",
-    "format": "prettier --write \"**/*.{css,html,js,jsx,json,md,pcss,svelte,ts,tsx}\""
+    "format": "prettier --write \"**/*.{css,html,js,json,md,pcss,svelte,ts}\""
   },
   "dependencies": {
     "compression": "^1.7.4",
@@ -73,14 +73,10 @@
     "plugins": [
       "prettier-plugin-svelte"
     ],
-    "overrides": [
-      {
+    "overrides": [{
         "files": "*.ts",
-        "options": {
-          "parser": "typescript"
-        }
-      }
-    ]
+        "options": {"parser": "typescript"}
+      }]
   },
   "husky": {
     "hooks": {
@@ -89,6 +85,6 @@
   },
   "lint-staged": {
     "*.{js,svelte,ts}": "eslint --cache --fix",
-    "*.{css,,html,js,jsx,json,md,pcss,svelte,ts,tsx}": "prettier --write"
+    "*.{css,,html,js,json,md,pcss,svelte,ts}": "prettier --write"
   }
 }
