@@ -1,15 +1,14 @@
-.DS_Store
-/node_modules/
-/src/node_modules/@sapper/
-yarn-error.log
-/__sapper__/
-.eslintcache
-static/global.css
+# build
+__sapper__/
 
-# yarn berry
-.yarn/*
-!.yarn/releases
-!.yarn/plugins
-!.yarn/sdks
-!.yarn/versions
-.pnp.*
+# dependency
+node_modules/
+
+# dotenv
+.env*
+
+# eslint
+.eslintcache
+
+# log
+*.log*
